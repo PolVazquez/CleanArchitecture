@@ -2,6 +2,7 @@
 using CL_EnterpriseLayer;
 using CL_InterfaceAdapters_Data;
 using CL_InterfaceAdapters_Models;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace CL_InterfaceAdapters
@@ -32,17 +33,16 @@ namespace CL_InterfaceAdapters
         => await _dbContext.Beers
                 .Select(b => new Beer
                 {
-                    Id= b.Id,
-                    Name= b.Name,
+                    Id = b.Id,
+                    Name = b.Name,
                     Style = b.Style,
                     Alcohol = b.Alcohol
                 }).ToListAsync();
 
-
         public async Task<Beer> GetByIdAsync(int id)
         {
-            var beerModel = await _dbContext.Beers.FindAsync(id);
-            return  new Beer
+            var beerModel = await _dbContext.Beers.FindAsync(id) ?? throw new Exception("Sin resultados");
+            return new Beer
             {
                 Id = beerModel.Id,
                 Name = beerModel.Name,
@@ -50,6 +50,5 @@ namespace CL_InterfaceAdapters
                 Alcohol = beerModel.Alcohol
             };
         }
-        
     }
 }

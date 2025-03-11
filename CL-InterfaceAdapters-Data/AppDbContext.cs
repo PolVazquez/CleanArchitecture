@@ -1,5 +1,4 @@
-﻿using CL_EnterpriseLayer;
-using CL_InterfaceAdapters_Models;
+﻿using CL_InterfaceAdapters_Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CL_InterfaceAdapters_Data

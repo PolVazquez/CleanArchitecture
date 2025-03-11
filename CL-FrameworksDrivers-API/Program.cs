@@ -13,11 +13,7 @@ using CL_InterfaceAdapters_Models;
 using CL_InterfaceAdapters_Presenters;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.Extensions.Configuration;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,9 +49,9 @@ builder.Services.AddScoped<IExternalService<PostServiceDto>, PostService>();
 builder.Services.AddScoped<IExternalServiceAdapter<Post>, PostExternalServiceAdapter>();
 
 
-builder.Services.AddHttpClient<IExternalService<PostServiceDto>, PostService>(c => {
+builder.Services.AddHttpClient<IExternalService<PostServiceDto>, PostService>(c =>
+{
     c.BaseAddress = new Uri(builder.Configuration["BaseUrlPosts"]);
-
 });
 
 var app = builder.Build();
@@ -69,19 +65,17 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
 app.UseMiddleware<ExceptionMiddleware>();
 
-
 app.MapGet("/beer", async (GetBeerUseCase<Beer, BeerViewModel> beerUseCase) =>
-{ 
+{
     return await beerUseCase.ExecuteAsync();
 })
 .WithName("beers")
 .WithOpenApi();
 
 app.MapPost("/beer", async (BeerRequestDTO beerRequest,
-    AddBeerUseCase<BeerRequestDTO> beerUseCase, 
+    AddBeerUseCase<BeerRequestDTO> beerUseCase,
     IValidator<BeerRequestDTO> validator) =>
 {
     var result = await validator.ValidateAsync(beerRequest);
@@ -131,7 +125,7 @@ app.MapGet("/sale", async (GetSaleUseCase saleUseCase) =>
 app.MapGet("/salesearch/{total}", async (GetSaleSearchUseCase<SaleModel> saleUseCase,
     int total) =>
 {
-    return await saleUseCase.ExecuteAsync(s => s.Total>total);
+    return await saleUseCase.ExecuteAsync(s => s.Total > total);
 })
 .WithName("getSalesSearch")
 .WithOpenApi();
