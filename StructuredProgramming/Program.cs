@@ -1,13 +1,13 @@
 ﻿// Programación estructurada
 //variables
 int number = 15;
-string name = "Héctor";
-bool thereIsBeer = true;
+//string name = "Héctor";
+//bool thereIsBeer = true;
 
 Console.WriteLine(number);
 
-var num = 15;
-var name2 = "Juan";
+//var num = 15;
+//var name2 = "Juan";
 
 // arrays
 var numbers = new int[5]
@@ -113,7 +113,7 @@ do
 {
     Console.Clear();
     ShowMenu();
-    op = int.Parse(Console.ReadLine());
+    op = int.Parse(Console.ReadLine() ?? throw new Exception());
 
     switch (op)
     {
@@ -123,7 +123,7 @@ do
                 Console.Clear();
                 Console.WriteLine("Escribe un nombre de cerveza: ");
                 var beer = Console.ReadLine();
-                beers[iBeers] = beer;
+                beers[iBeers] = beer ?? throw new Exception();
                 iBeers++;
             }
             else

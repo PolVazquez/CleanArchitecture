@@ -24,7 +24,7 @@ namespace CA_FrameworksDrivers_ExternalService
 
             response.EnsureSuccessStatusCode();
             var responseData = await response.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<IEnumerable<PostServiceDto>>(responseData, _options);
+            return JsonSerializer.Deserialize<IEnumerable<PostServiceDto>>(responseData, _options) ?? throw new Exception("No es posible deserializar el Json");
         }
     }
 }

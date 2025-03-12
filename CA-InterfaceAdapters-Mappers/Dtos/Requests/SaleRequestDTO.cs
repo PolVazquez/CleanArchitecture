@@ -2,7 +2,7 @@
 {
     public class SaleRequestDTO
     {
-        public List<ConceptRequestDTO> Concepts { get; set; }
+        public List<ConceptRequestDTO>? Concepts { get; set; }
     }
 
     public class ConceptRequestDTO

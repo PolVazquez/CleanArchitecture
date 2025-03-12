@@ -61,11 +61,11 @@ DateTime Tomorrow()
     return DateTime.Now.AddDays(1);
 }
 
-Beer ToUpper(Beer beer)
-{
-    beer.Name = beer.Name.ToUpper();
-    return beer;
-}
+//Beer ToUpper(Beer beer)
+//{
+//    beer.Name = beer.Name.ToUpper();
+//    return beer;
+//}
 
 //Función pura
 DateTime TomorrowPure(DateTime date)
@@ -77,13 +77,13 @@ Beer ToUpperPure(Beer beer)
 {
     var beer2 = new Beer()
     {
-        Name = beer.Name.ToUpper(),
+        Name = beer?.Name?.ToUpper(),
     };
 
     return beer2;
 }
 
-public class Beer
+class Beer
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
 }

@@ -50,7 +50,7 @@ builder.Services.AddScoped<IExternalServiceAdapter<Post>, PostExternalServiceAda
 
 builder.Services.AddHttpClient<IExternalService<PostServiceDto>, PostService>(c =>
 {
-    c.BaseAddress = new Uri(builder.Configuration["BaseUrlPosts"]);
+    c.BaseAddress = new Uri(builder.Configuration["BaseUrlPosts"] ?? string.Empty);
 });
 
 var app = builder.Build();

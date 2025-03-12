@@ -23,7 +23,7 @@ var container = new ServiceCollection()
     .AddScoped<IPresenter<Beer, BeerDetailViewModel>, BeerDetailPresenter>()
     .BuildServiceProvider();
 
-var getBeerUseCase = container.GetService<GetBeerUseCase<Beer, BeerDetailViewModel>>();
+var getBeerUseCase = container.GetService<GetBeerUseCase<Beer, BeerDetailViewModel>>() ?? throw new Exception("No es posible obtener el servicio");
 
 var beers = await getBeerUseCase.ExecuteAsync();
 
