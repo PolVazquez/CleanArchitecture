@@ -10,7 +10,7 @@ namespace CL_InterfaceAdapters_Presenters
             {
                 Id = b.Id,
                 Name = b.Name,
-                Alcohol = b.Alcohol + " %"
+                Alcohol = string.Format($"{b.Alcohol} %")
             });
     }
 }

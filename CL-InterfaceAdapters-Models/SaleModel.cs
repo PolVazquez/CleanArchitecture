@@ -6,6 +6,6 @@
         public decimal Total { get; set; }
         public DateTime CreationDate { get; set; }
 
-        public List<ConceptModel> Concepts { get; set; }
+        public List<ConceptModel>? Concepts { get; set; }
     }
 }

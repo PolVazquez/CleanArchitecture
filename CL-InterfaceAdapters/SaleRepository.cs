@@ -46,12 +46,14 @@ namespace CL_InterfaceAdapters
         public async Task<Sale> GetByIdAsync(int id)
         {
             var saleModel = await _dbContext.Sales.FindAsync(id);
-            return new Sale(saleModel.Id, saleModel.CreationDate,
-                                      _dbContext.Concepts
+            if (saleModel != null)
+                return new Sale(saleModel.Id, saleModel.CreationDate,
+                                          [.. _dbContext.Concepts
                                            .Where(c => c.IdSale == saleModel.Id)
-                                           .Select(c => new Concept(c.Quantity, c.IdBeer, c.UnitPrice))
-                                           .ToList()
-                            );
+                                           .Select(c => new Concept(c.Quantity, c.IdBeer, c.UnitPrice))]
+                                );
+            else
+                throw new Exception("No existe el registro");
         }
 
         public async Task<IEnumerable<Sale>> GetAsync(Expression<Func<SaleModel, bool>> predicate)
@@ -63,7 +65,7 @@ namespace CL_InterfaceAdapters
             foreach (var saleModel in salesModel)
             {
                 var concepts = new List<Concept>();
-                foreach (var conceptModel in saleModel.Concepts)
+                foreach (var conceptModel in saleModel.Concepts ?? throw new Exception("saleModel.Concepts is null"))
                 {
                     var concept = new Concept(conceptModel.Quantity, conceptModel.IdBeer, conceptModel.UnitPrice);
                     concepts.Add(concept);

@@ -10,7 +10,7 @@ namespace CA_InterfaceAdapters_Mappers
         {
             var concepts = new List<Concept>();
 
-            foreach (var conceptDTO in dto.Concepts)
+            foreach (var conceptDTO in dto.Concepts ?? throw new Exception("dto.Concepts is null"))
             {
                 concepts.Add(new Concept(conceptDTO.Quantity, conceptDTO.IdBeer, conceptDTO.UnitPrice));
             }
