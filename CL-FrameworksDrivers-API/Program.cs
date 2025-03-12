@@ -48,7 +48,6 @@ builder.Services.AddScoped<IMapper<SaleRequestDTO, Sale>, SaleMapper>();
 builder.Services.AddScoped<IExternalService<PostServiceDto>, PostService>();
 builder.Services.AddScoped<IExternalServiceAdapter<Post>, PostExternalServiceAdapter>();
 
-
 builder.Services.AddHttpClient<IExternalService<PostServiceDto>, PostService>(c =>
 {
     c.BaseAddress = new Uri(builder.Configuration["BaseUrlPosts"]);
@@ -91,7 +90,6 @@ app.MapPost("/beer", async (BeerRequestDTO beerRequest,
 .WithName("addBeer")
 .WithOpenApi();
 
-
 app.MapGet("/beerDetail", async (GetBeerUseCase<Beer, BeerDetailViewModel> beerUseCase) =>
 {
     return await beerUseCase.ExecuteAsync();
@@ -130,6 +128,4 @@ app.MapGet("/salesearch/{total}", async (GetSaleSearchUseCase<SaleModel> saleUse
 .WithName("getSalesSearch")
 .WithOpenApi();
 
-
 app.Run();
-

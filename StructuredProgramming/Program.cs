@@ -1,7 +1,5 @@
 ﻿// Programación estructurada
 //variables
-using System.Reflection.Metadata.Ecma335;
-
 int number = 15;
 string name = "Héctor";
 bool thereIsBeer = true;
@@ -23,11 +21,11 @@ Console.WriteLine(numbers[4]);
 // sentencias condicionales: if y switch
 
 var age = 12;
-if(age > 60)
+if (age > 60)
 {
     Console.WriteLine("Es de la tercera edad");
 }
-else if(age > 18)
+else if (age > 18)
 {
     Console.WriteLine("Es mayor de edad");
 }
@@ -41,13 +39,14 @@ switch (age)
     case < 18:
         Console.WriteLine("Es menor de edad");
         break;
+
     case < 60:
         Console.WriteLine("Es mayor de edad");
         break;
+
     default:
         Console.WriteLine("Es de la tercera edad");
         break;
-
 }
 
 // sentencia de iteración: while, do y for
@@ -62,20 +61,19 @@ do
     Console.WriteLine(names[i]);
     // i = i + 1;
     i++;
-} while (i<names.Length);
+} while (i < names.Length);
 
 i = 0;
-while (i<names.Length)
+while (i < names.Length)
 {
     Console.WriteLine(names[i]);
     i++;
 }
 
-for (int j = 0; j<names.Length; j++)
+for (int j = 0; j < names.Length; j++)
 {
     Console.WriteLine(names[j]);
 }
-
 
 // funciones
 int res1 = 30 * 30;
@@ -104,8 +102,6 @@ void Bye()
     Show("Adios");
 }
 
-
-
 // ejemplo programación estructurada
 
 int op = 0;
@@ -122,7 +118,8 @@ do
     switch (op)
     {
         case 1:
-            if (iBeers< limit) {
+            if (iBeers < limit)
+            {
                 Console.Clear();
                 Console.WriteLine("Escribe un nombre de cerveza: ");
                 var beer = Console.ReadLine();
@@ -134,20 +131,23 @@ do
                 Console.WriteLine("Ya no caben cervezas");
             }
             break;
+
         case 2:
             ShowBeers(beers, iBeers);
             break;
+
         case 3:
             Console.WriteLine("Adios");
             break;
+
         default:
             Console.WriteLine("Opción no valida");
             break;
     }
-} while (op !=3);
+} while (op != 3);
 
-
-void ShowMenu(){
+void ShowMenu()
+{
     Console.WriteLine("1. Agregar nombre");
     Console.WriteLine("2. Mostrar nombres");
     Console.WriteLine("3. Salir");
@@ -157,11 +157,10 @@ void ShowBeers(string[] beers, int iBeers)
 {
     Console.Clear();
     Console.WriteLine("-----Cervezas-----");
-    for (int i= 0; i <= iBeers; i++)
+    for (int i = 0; i <= iBeers; i++)
     {
         Console.WriteLine(beers[i]);
     }
     Console.WriteLine("Presiona una tecla para continuar");
     Console.ReadLine();
 }
-

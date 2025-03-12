@@ -1,13 +1,6 @@
-﻿using CL_EnterpriseLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CL_ApplicationLayer
+﻿namespace CL_ApplicationLayer
 {
-    public class GetBeerUseCase<TEntity, TOutput> 
+    public class GetBeerUseCase<TEntity, TOutput>
     {
         private readonly IRepository<TEntity> _beerRepository;
         private readonly IPresenter<TEntity, TOutput> _presenter;
@@ -24,6 +17,5 @@ namespace CL_ApplicationLayer
             var beers = await _beerRepository.GetAllAsync();
             return _presenter.Present(beers);
         }
-
     }
 }

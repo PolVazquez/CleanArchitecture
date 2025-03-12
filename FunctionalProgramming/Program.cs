@@ -1,7 +1,5 @@
-﻿using System.Threading.Channels;
-
-Console.WriteLine(Tomorrow());
-Console.WriteLine(TomorrowPure(new DateTime(2024,05,01,00,00,00)));
+﻿Console.WriteLine(Tomorrow());
+Console.WriteLine(TomorrowPure(new DateTime(2024, 05, 01, 00, 00, 00)));
 
 var beer = new Beer()
 {
@@ -13,7 +11,7 @@ Console.WriteLine(ToUpperPure(beer).Name);
 Console.WriteLine(beer.Name);
 
 var t = TomorrowPure;
-Console.WriteLine(t(new DateTime(2024,05,01,00,00,00)));
+Console.WriteLine(t(new DateTime(2024, 05, 01, 00, 00, 00)));
 
 Action<string> show = Console.WriteLine;
 show("Hola");
@@ -57,9 +55,9 @@ List<int> Filter(List<int> list, Predicate<int> condition)
     return resultsList;
 }
 
-
 // Función no pura
-DateTime Tomorrow(){
+DateTime Tomorrow()
+{
     return DateTime.Now.AddDays(1);
 }
 
@@ -85,9 +83,7 @@ Beer ToUpperPure(Beer beer)
     return beer2;
 }
 
-
-
 public class Beer
 {
-    public string Name { get;set; }
+    public string Name { get; set; }
 }

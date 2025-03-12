@@ -1,11 +1,6 @@
 ﻿using CA_InterfaceAdapters_Mappers.Dtos.Requests;
 using CL_ApplicationLayer;
 using CL_EnterpriseLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CA_InterfaceAdapters_Mappers
 {
@@ -13,7 +8,6 @@ namespace CA_InterfaceAdapters_Mappers
     {
         public Sale ToEntity(SaleRequestDTO dto)
         {
-          
             var concepts = new List<Concept>();
 
             foreach (var conceptDTO in dto.Concepts)

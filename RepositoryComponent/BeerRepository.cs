@@ -13,6 +13,6 @@ namespace RepositoryComponent
             => _beers.Add(name);
 
         public string Get()
-            => _beers.Aggregate("", (ac, beer) => ac + beer +", ");
+            => _beers.Aggregate("", (ac, beer) => ac + beer + ", ");
     }
 }

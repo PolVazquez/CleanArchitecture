@@ -1,10 +1,5 @@
 ﻿using CL_ApplicationLayer;
 using CL_EnterpriseLayer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CL_InterfaceAdapters_Presenters
 {

@@ -1,7 +1,6 @@
 ﻿using CA_InterfaceAdapters_Adapters.Dtos;
 using CL_ApplicationLayer;
 using CL_EnterpriseLayer;
-using System.Text.Json;
 
 namespace CA_InterfaceAdapters_Adapters
 {
@@ -15,7 +14,8 @@ namespace CA_InterfaceAdapters_Adapters
         public async Task<IEnumerable<Post>> GetDataAsync()
         {
             var postsES = await _externalService.GetContentAsync();
-            var posts = postsES.Select(p => new Post {
+            var posts = postsES.Select(p => new Post
+            {
                 Id = p.Id,
                 Title = p.Title,
                 Body = p.Body

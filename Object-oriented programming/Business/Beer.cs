@@ -1,7 +1,4 @@
-﻿
-using System.Threading.Channels;
-
-namespace Object_oriented_programming.Business
+﻿namespace Object_oriented_programming.Business
 {
     public class Beer : Drink, ISalable, ISend
     {
@@ -23,6 +20,7 @@ namespace Object_oriented_programming.Business
                 _alcohol = value;
             }
         }
+
         public string SAlcohol
         {
             get
@@ -52,7 +50,7 @@ namespace Object_oriented_programming.Business
 
         public string GetInfo(int number)
         {
-            return number +".- " + GetInfo();
+            return number + ".- " + GetInfo();
         }
 
         public override string GetCategory()
@@ -65,8 +63,5 @@ namespace Object_oriented_programming.Business
 
         public void Send()
             => Console.WriteLine("Se envia por correo: " + GetInfo());
-
-
-
     }
 }

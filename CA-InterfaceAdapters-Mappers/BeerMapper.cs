@@ -8,12 +8,11 @@ namespace CA_InterfaceAdapters_Mappers
     {
         public Beer ToEntity(BeerRequestDTO dto)
             => new Beer()
-                {
-                    Id = dto.Id,
-                    Name = dto.Name,
-                    Style = dto.Style,
-                    Alcohol = dto.Alcohol
-                };
-        
+            {
+                Id = dto.Id,
+                Name = dto.Name,
+                Style = dto.Style,
+                Alcohol = dto.Alcohol
+            };
     }
 }

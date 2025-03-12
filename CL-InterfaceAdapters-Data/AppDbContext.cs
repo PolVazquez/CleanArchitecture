@@ -5,7 +5,10 @@ namespace CL_InterfaceAdapters_Data
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
+
         public DbSet<BeerModel> Beers { get; set; }
         public DbSet<SaleModel> Sales { get; set; }
         public DbSet<ConceptModel> Concepts { get; set; }

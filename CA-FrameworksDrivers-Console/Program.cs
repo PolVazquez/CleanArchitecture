@@ -13,8 +13,6 @@ var builder = new ConfigurationBuilder()
 
 IConfiguration configuration = builder.Build();
 
-
-
 var container = new ServiceCollection()
     .AddDbContext<AppDbContext>(options =>
         options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")))

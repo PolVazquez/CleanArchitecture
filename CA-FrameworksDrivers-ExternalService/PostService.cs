@@ -1,6 +1,5 @@
 ﻿using CA_InterfaceAdapters_Adapters;
 using CA_InterfaceAdapters_Adapters.Dtos;
-using CL_ApplicationLayer;
 using System.Text.Json;
 
 namespace CA_FrameworksDrivers_ExternalService
@@ -10,8 +9,8 @@ namespace CA_FrameworksDrivers_ExternalService
         private readonly HttpClient _httpClient;
         private readonly JsonSerializerOptions _options;
 
-         public PostService(HttpClient httpClient)
-         {
+        public PostService(HttpClient httpClient)
+        {
             _httpClient = httpClient;
             _options = new JsonSerializerOptions
             {
@@ -22,7 +21,7 @@ namespace CA_FrameworksDrivers_ExternalService
         public async Task<IEnumerable<PostServiceDto>> GetContentAsync()
         {
             var response = await _httpClient.GetAsync(_httpClient.BaseAddress);
-           
+
             response.EnsureSuccessStatusCode();
             var responseData = await response.Content.ReadAsStringAsync();
             return JsonSerializer.Deserialize<IEnumerable<PostServiceDto>>(responseData, _options);
