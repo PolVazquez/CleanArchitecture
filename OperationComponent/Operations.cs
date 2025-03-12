@@ -4,7 +4,5 @@
     {
         public decimal Some(decimal a, decimal b)
             => a * b;
-
-
     }
 }

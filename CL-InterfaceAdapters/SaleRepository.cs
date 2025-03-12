@@ -3,12 +3,7 @@ using CL_EnterpriseLayer;
 using CL_InterfaceAdapters_Data;
 using CL_InterfaceAdapters_Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CL_InterfaceAdapters
 {
@@ -48,7 +43,6 @@ namespace CL_InterfaceAdapters
                         )
                 .ToListAsync();
 
-
         public async Task<Sale> GetByIdAsync(int id)
         {
             var saleModel = await _dbContext.Sales.FindAsync(id);
@@ -60,13 +54,11 @@ namespace CL_InterfaceAdapters
                             );
         }
 
-
         public async Task<IEnumerable<Sale>> GetAsync(Expression<Func<SaleModel, bool>> predicate)
         {
             var salesModel = await _dbContext.Sales.Include("Concepts").Where(predicate).ToListAsync();
 
             var sales = new List<Sale>();
-          
 
             foreach (var saleModel in salesModel)
             {
@@ -82,7 +74,5 @@ namespace CL_InterfaceAdapters
 
             return sales;
         }
-     
-
     }
 }

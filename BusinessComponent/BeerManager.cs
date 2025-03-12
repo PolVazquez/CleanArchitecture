@@ -3,6 +3,7 @@
     public class BeerManager
     {
         private IRepository _repository;
+
         public BeerManager(IRepository repository)
            => _repository = repository;
 
@@ -12,10 +13,10 @@
             {
                 throw new ArgumentNullException("name");
             }
-            
-            _repository.Add(name);
 
+            _repository.Add(name);
         }
+
         public string Get()
            => "Las cervezas son: " + _repository.Get();
     }

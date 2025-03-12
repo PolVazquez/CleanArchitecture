@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace CL_FrameworksDrivers_API.Validators
 {
-    public class BeerValidator :AbstractValidator<BeerRequestDTO>
+    public class BeerValidator : AbstractValidator<BeerRequestDTO>
     {
         public BeerValidator()
         {

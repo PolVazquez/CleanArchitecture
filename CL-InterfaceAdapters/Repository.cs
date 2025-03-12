@@ -2,7 +2,6 @@
 using CL_EnterpriseLayer;
 using CL_InterfaceAdapters_Data;
 using CL_InterfaceAdapters_Models;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace CL_InterfaceAdapters

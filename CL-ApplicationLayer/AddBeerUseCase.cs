@@ -14,6 +14,7 @@ namespace CL_ApplicationLayer
             _beerRepository = beerRepository;
             _mapper = mapper;
         }
+
         public async Task ExecuteAsync(TDTO beerDTO)
         {
             var beer = _mapper.ToEntity(beerDTO);

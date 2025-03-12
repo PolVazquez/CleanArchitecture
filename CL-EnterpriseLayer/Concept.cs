@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CL_EnterpriseLayer
+﻿namespace CL_EnterpriseLayer
 {
     public class Concept
     {
-        public int Quantity { get;}
+        public int Quantity { get; }
         public int IdBeer { get; }
-        public decimal UnitPrice { get;}
+        public decimal UnitPrice { get; }
         public decimal Price { get; }
 
         public Concept(int quantity, int idBeer, decimal unitPrice)

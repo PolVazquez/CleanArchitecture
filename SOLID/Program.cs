@@ -78,23 +78,25 @@ public interface IReportShow
 public interface IRepository<T>
 {
     public void Add(T item);
+
     public List<T> Get();
 }
-
 
 public class BeerData : IRepository<string>
 {
     protected List<string> _beers;
+
     public BeerData()
     {
         _beers = new List<string>();
     }
+
     public void Add(string beer)
        => _beers.Add(beer);
+
     public List<string> Get()
         => _beers;
 }
-
 
 public class LimitedBeerData
 {
@@ -127,10 +129,12 @@ public class LimitedBeerData
 public class ReportGeneratorBeer : IReportGenerator, IReportShow
 {
     private IRepository<string> _beerData;
+
     public ReportGeneratorBeer(IRepository<string> beerData)
     {
         _beerData = beerData;
     }
+
     public string Generate()
     {
         string data = "";
@@ -153,10 +157,12 @@ public class ReportGeneratorBeer : IReportGenerator, IReportShow
 public class ReportGeneratorHTMLBeer : IReportGenerator
 {
     private IRepository<string> _beerData;
+
     public ReportGeneratorHTMLBeer(IRepository<string> beerData)
     {
         _beerData = beerData;
     }
+
     public string Generate()
     {
         string data = "<div>";
@@ -168,7 +174,6 @@ public class ReportGeneratorHTMLBeer : IReportGenerator
 
         return data;
     }
-
 }
 
 public class Report
@@ -188,6 +193,7 @@ public class Report
 public class Beer
 {
     private List<string> _beers;
+
     public Beer()
     {
         _beers = new List<string>();

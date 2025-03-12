@@ -45,14 +45,14 @@ foreach (var element in elements.Get())
 }
 
 Console.WriteLine($"Objetos creados {Beer.QuantityObjects}");
-Console.WriteLine(Operations.Add(1,3));
-Console.WriteLine(Operations.Mul(10,20));
-
+Console.WriteLine(Operations.Add(1, 3));
+Console.WriteLine(Operations.Mul(10, 20));
 
 void Show(Drink drink) =>
     Console.WriteLine(drink.GetCategory());
 
-decimal GetTotal(ISalable[] concepts){
+decimal GetTotal(ISalable[] concepts)
+{
     decimal total = 0;
     foreach (var concept in concepts)
     {
